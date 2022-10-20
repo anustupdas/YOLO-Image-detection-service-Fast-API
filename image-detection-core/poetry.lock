@@ -2,7 +2,7 @@
 name = "absl-py"
 version = "1.3.0"
 description = "Abseil Python Common Libraries, see https://github.com/abseil/abseil-py."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -10,7 +10,7 @@ python-versions = ">=3.6"
 name = "astunparse"
 version = "1.6.3"
 description = "An AST unparser for Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -83,7 +83,7 @@ stone = ">=2"
 name = "easydict"
 version = "1.10"
 description = "Access dict values as attributes (works recursively)."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -91,7 +91,7 @@ python-versions = "*"
 name = "gast"
 version = "0.3.3"
 description = "Python AST that abstracts the underlying Python version"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -138,7 +138,7 @@ reauth = ["pyu2f (>=0.1.5)"]
 name = "google-auth-oauthlib"
 version = "0.4.6"
 description = "Google Authentication Library"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -196,7 +196,7 @@ testing = ["pytest"]
 name = "google-pasta"
 version = "0.2.0"
 description = "pasta is an AST-based Python refactoring library"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -236,7 +236,7 @@ grpc = ["grpcio (>=1.0.0,<2.0.0dev)"]
 name = "grpcio"
 version = "1.50.0"
 description = "HTTP/2-based RPC framework"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -250,7 +250,7 @@ protobuf = ["grpcio-tools (>=1.50.0)"]
 name = "h5py"
 version = "2.10.0"
 description = "Read and write HDF5 files from Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -284,7 +284,7 @@ requests = ">=2.21,<3.0"
 name = "importlib-metadata"
 version = "5.0.0"
 description = "Read metadata from Python packages"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -309,7 +309,7 @@ python-versions = "*"
 name = "keras-preprocessing"
 version = "1.1.2"
 description = "Easy data preprocessing and data augmentation for deep learning models"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -326,7 +326,7 @@ tests = ["pandas", "pillow", "tensorflow", "keras", "pytest", "pytest-xdist", "p
 name = "markdown"
 version = "3.4.1"
 description = "Python implementation of Markdown."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -340,7 +340,7 @@ testing = ["coverage", "pyyaml"]
 name = "markupsafe"
 version = "2.1.1"
 description = "Safely add untrusted strings to HTML/XML markup."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -348,7 +348,7 @@ python-versions = ">=3.7"
 name = "numpy"
 version = "1.18.5"
 description = "NumPy is the fundamental package for array computing with Python."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -356,7 +356,7 @@ python-versions = ">=3.5"
 name = "oauthlib"
 version = "3.2.2"
 description = "A generic, spec-compliant, thorough implementation of the OAuth request-signing logic"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -369,7 +369,7 @@ signedtoken = ["cryptography (>=3.0.0)", "pyjwt (>=2.0.0,<3)"]
 name = "opencv-python"
 version = "4.5.2.54"
 description = "Wrapper package for OpenCV python bindings."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -380,7 +380,7 @@ numpy = ">=1.13.3"
 name = "opencv-python"
 version = "4.5.5.64"
 description = "Wrapper package for OpenCV python bindings."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -394,7 +394,7 @@ numpy = [
 name = "opencv-python"
 version = "4.6.0.66"
 description = "Wrapper package for OpenCV python bindings."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -408,7 +408,7 @@ numpy = [
 name = "opt-einsum"
 version = "3.3.0"
 description = "Optimizing numpys einsum function"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -423,7 +423,7 @@ tests = ["pytest", "pytest-cov", "pytest-pep8"]
 name = "packaging"
 version = "21.3"
 description = "Core utilities for Python packages"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -434,7 +434,7 @@ pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
 name = "pillow"
 version = "9.2.0"
 description = "Python Imaging Library (Fork)"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -467,11 +467,11 @@ python-versions = "*"
 
 [[package]]
 name = "protobuf"
-version = "3.19.6"
-description = "Protocol Buffers"
+version = "4.21.8"
+description = ""
 category = "main"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.7"
 
 [[package]]
 name = "py"
@@ -504,7 +504,7 @@ pyasn1 = ">=0.4.6,<0.5.0"
 name = "pyparsing"
 version = "3.0.9"
 description = "pyparsing module - Classes and methods to define and execute parsing grammars"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6.8"
 
@@ -515,7 +515,7 @@ diagrams = ["railroad-diagrams", "jinja2"]
 name = "pytesseract"
 version = "0.3.10"
 description = "Python-tesseract is a python wrapper for Google's Tesseract-OCR"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -574,7 +574,7 @@ use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
 name = "requests-oauthlib"
 version = "1.3.1"
 description = "OAuthlib authentication support for Requests."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -600,7 +600,7 @@ pyasn1 = ">=0.1.3"
 name = "scipy"
 version = "1.4.1"
 description = "SciPy: Scientific Library for Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -629,9 +629,9 @@ six = ">=1.12.0"
 
 [[package]]
 name = "tensorboard"
-version = "2.10.1"
+version = "2.9.0"
 description = "TensorBoard lets you watch Tensors Flow"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -642,7 +642,7 @@ google-auth-oauthlib = ">=0.4.1,<0.5"
 grpcio = ">=1.24.3"
 markdown = ">=2.6.8"
 numpy = ">=1.12.0"
-protobuf = ">=3.9.2,<3.20"
+protobuf = ">=3.9.2"
 requests = ">=2.21.0,<3"
 tensorboard-data-server = ">=0.6.0,<0.7.0"
 tensorboard-plugin-wit = ">=1.6.0"
@@ -652,7 +652,7 @@ werkzeug = ">=1.0.1"
 name = "tensorboard-data-server"
 version = "0.6.1"
 description = "Fast data loading for TensorBoard"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -660,7 +660,7 @@ python-versions = ">=3.6"
 name = "tensorboard-plugin-wit"
 version = "1.8.1"
 description = "What-If Tool TensorBoard plugin."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -668,7 +668,7 @@ python-versions = "*"
 name = "tensorflow"
 version = "2.3.0"
 description = "TensorFlow is an open source machine learning framework for everyone."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -694,7 +694,7 @@ wrapt = ">=1.11.1"
 name = "tensorflow-estimator"
 version = "2.3.0"
 description = "TensorFlow Estimator."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -702,7 +702,7 @@ python-versions = "*"
 name = "termcolor"
 version = "2.0.1"
 description = "ANSI color formatting for output in terminal"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -729,7 +729,7 @@ python-versions = ">=3.7"
 name = "typing-extensions"
 version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -750,7 +750,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 name = "werkzeug"
 version = "2.2.2"
 description = "The comprehensive WSGI web application library."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -764,7 +764,7 @@ watchdog = ["watchdog"]
 name = "wrapt"
 version = "1.14.1"
 description = "Module for decorators, wrappers and monkey patching."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 
@@ -772,7 +772,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 name = "zipp"
 version = "3.9.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -783,7 +783,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "274a0967e411a7a9a110ad3bb9ef561fad9b29d1ad67060623cbd08dea376df5"
+content-hash = "d66a4274e2efd4c31a4f22996cabd5e7528dc793780385a8829762be6e696895"
 
 [metadata.files]
 absl-py = []
