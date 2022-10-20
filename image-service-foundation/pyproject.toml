@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "image-service-foundation"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
-authors = ["Anustup Das <anustup@mediadistillery.com>"]
+authors = ["Anustup Das <anustup@mediadistillery.com>", "Ryan Amirkhan <ryan@mediadistillery.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
@@ -15,7 +15,6 @@ dropbox="11.35.0"
 [tool.poetry.dev-dependencies]
 pytest = ">=6.2.2"
 toml = "^0.10.2"
-
 
 [tool.isort]
 profile = "black"

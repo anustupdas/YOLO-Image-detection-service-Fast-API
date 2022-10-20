@@ -1,12 +1,12 @@
-import os
 import logging
+import os
+
 from image_service_foundation.config.configuration_manager import ConfigurationManager
-from image_service_foundation.storage.google_cloud import GoogleStorage
 from image_service_foundation.storage.dropbox_cloud import DropBoxStorage
-from image_detection_core.save_model import Model_Converter
-from google.cloud import storage
+from image_service_foundation.storage.google_cloud import GoogleStorage
 
 logger = logging.getLogger(__name__)
+
 
 class ModelsProvider:
     def __init__(self, config: ConfigurationManager):
@@ -16,22 +16,25 @@ class ModelsProvider:
         self.enabled_models = self.config.get('models.enabledTypes')
 
         if not self.enabled_models:
-            raise ValueError("No models enabled in configuration. Specify a list of enabled model types with key `models.enabledTypes`.")
+            raise ValueError(
+                "No models enabled in configuration. "
+                "Specify a list of enabled model types with key `models.enabledTypes`."
+            )
         self.service_name = self.config.get('storage.serviceName')
         if not self.service_name:
-            raise ValueError("No service name specified in configuration. Specify the service name with key storage.serviceName")
+            raise ValueError(
+                "No service name specified in configuration. Specify the service name with key storage.serviceName"
+            )
 
         self.destination_folder = self.config.get('models.location', f"/etc/{self.service_name}/models")
 
     def _init_client(self, storage_client='dropbox'):
         if storage_client == 'gcloud':
-            #self.storage_client = GoogleStorage(self.config.get('storage.key', '/etc/gcloud/key.json'))
-            self.storage_client = storage.Client.create_anonymous_client()
+            self.storage_client = GoogleStorage(anonymous=True)
         elif storage_client == 'dropbox':
-            self.storage_client = DropBoxStorage(self.config)
+            self.storage_client = DropBoxStorage(self.config['dropbox.accesstoken'])
         else:
-            self.storage_client = "local"
-            raise NotImplementedError('Currently only supported for gcloud')
+            raise NotImplementedError('Currently only supported for gcloud & dropbox')
         logger.info(f"Initialized ModelsProvider with storage client {storage_client}")
 
     def _get_file_destination(self, model_type, filename):
@@ -40,7 +43,6 @@ class ModelsProvider:
         return destination_path
 
     def download_models(self):
-        models_converter = Model_Converter(self.config)
         for model_type in self.enabled_models:
             logger.info(f"Attempting download of {model_type}")
             try:
@@ -53,11 +55,5 @@ class ModelsProvider:
             os.makedirs(folder_destination, exist_ok=True)
 
             if not os.path.isfile(file_destination):
-                if self.storage_client_name == 'gcloud':
-                    bucket = self.storage_client.bucket(self.config.get('storage.bucket', 'md-data-bingemarkers'))
-                    blob = bucket.blob(blob_name)
-                    blob.download_to_filename(file_destination)
-                else:
-                    self.storage_client.download(file_destination)
-                models_converter.save_tf()
-
+                bucket_name = self.config.get('storage.bucket', 'md-data-bingemarkers')
+                self.storage_client.download(bucket_name, blob_name, file_destination)

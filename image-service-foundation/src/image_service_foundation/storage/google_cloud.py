@@ -2,7 +2,7 @@ import datetime
 import pathlib
 import typing
 
-from google.cloud.storage import Bucket, Client, Blob
+from google.cloud.storage import Blob, Bucket, Client
 
 
 class BlobNotFoundException(FileNotFoundError):
@@ -10,10 +10,15 @@ class BlobNotFoundException(FileNotFoundError):
 
 
 class GoogleStorage:
-    def __init__(self, service_account_filepath: typing.Union[str, pathlib.Path] = None) -> None:
-        self.client = (
-            Client.from_service_account_json(service_account_filepath) if service_account_filepath else Client()
-        )
+    def __init__(
+        self, service_account_filepath: typing.Union[str, pathlib.Path] = None, anonymous: bool = False
+    ) -> None:
+        if anonymous:
+            self.client = Client.create_anonymous_client()
+        else:
+            self.client = (
+                Client.from_service_account_json(service_account_filepath) if service_account_filepath else Client()
+            )
 
     def download(
         self, bucket_name: str, blob_name: typing.Union[str, pathlib.Path], filepath: typing.Union[str, pathlib.Path]

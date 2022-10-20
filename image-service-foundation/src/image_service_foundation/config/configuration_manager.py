@@ -7,7 +7,10 @@ import re
 import requests
 import yaml
 
-from image_service_foundation.config.utils import PathLike, DefaultSpringCloudConfigParser
+from image_service_foundation.config.utils import (
+    DefaultSpringCloudConfigParser,
+    PathLike,
+)
 
 logger = logging.getLogger(__name__)
 
