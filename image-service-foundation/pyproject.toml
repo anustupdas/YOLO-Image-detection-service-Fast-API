@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "image-service-foundation"
+version = "0.1.0"
+description = ""
+authors = ["Anustup Das <anustup@mediadistillery.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python="^3.7"
+PyYAML=">=5.1b3"
+requests="^2.21"
+google-cloud-storage=">=1.35,<2"
+dropbox="11.35.0"
+
+[tool.poetry.dev-dependencies]
+pytest = ">=6.2.2"
+toml = "^0.10.2"
+
+
+[tool.isort]
+profile = "black"

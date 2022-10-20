@@ -1,0 +1,31 @@
+---
+prometheus.enabled: true
+prometheus.port: 8080
+exampletemplateservice.port: 5000
+exampletemplateservice.hostName: 0.0.0.0
+exampletemplateservice.logFile: null
+exampletemplateservice.logLevel: info
+fastapi.logLevel: warning
+
+
+storage.serviceName: image_detection_service
+models.enabledTypes:
+        - yolo
+
+yolo.modelName: yolov4.weights
+
+yolo.weightPath: '/etc/image_detection_service/models/yolo/yolov4.weights'
+yolo.finalweights: '/etc/image_detection_service/models/yolo_checkpoint'
+yolo.tiny: False
+yolo.input_size: 416
+yolo.framework: tf
+yolo.model: yolov4
+yolo.iou: 0.45
+yolo.score_threshold: 0.50
+
+
+storage.bucket: md-data-bingemarkers
+storage.key: /etc/gcloud/key.json
+
+
+dropbox.accesstoken: 'sl.BReWCoENuUEgfI53sZM1PZZqbKFJynCxxvNx-WKagtX-0LyHpxzEb89fFZcsvADM_mL3h44uIepBc6EjwzOavcGBQdp73o78eMirb9sMu-AzSt_wGsiED5VVCPVBwGGugKcJ6imNmzFz'
