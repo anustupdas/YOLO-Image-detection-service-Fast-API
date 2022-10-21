@@ -2,9 +2,10 @@
  <a href="">
         <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/example-template-service"></a>
 
-#  Example Template Foundation
+#  Image Service Foundation
 
 The foundation library contains shared python code that can be reused in the Python projects.
+For this project it mainly handels the functions that we frequently use to read configuration files and also functions that are needed to access ML models that are hosted in cloud [Google/ Dropbox]  
 
 ## Getting Started
 
@@ -12,14 +13,15 @@ The foundation library contains shared python code that can be reused in the Pyt
 Run the following commands:
 ```
 sudo apt-get install libyaml-dev
-cd <install-directory>/example-template-foundation
+cd <install-directory>/image-service-foundation
 poetry update
+poerty install
 poetry build
 ```
 
 Alternatively, install the module from PYPI:
 ```
-pip install example-template-foundation
+pip install image-service-foundation
 ```
 
 ### Build
@@ -48,7 +50,7 @@ poetry publish
 
 ## Authors
 
-* **Your_Name** your_mail@address.com
+* **Anustup Das** anustup@mediadistillery.com
 
 ## License
 

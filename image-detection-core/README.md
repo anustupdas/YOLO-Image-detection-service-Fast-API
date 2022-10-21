@@ -2,9 +2,10 @@
  <a href="">
         <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/example-template-service"></a>
 
-#  Example Template Core
+#  Image Detection Core
 
 The core library may contain python code that is core to a specific project which mainly deals with the business logic, such as model initialization, inference and data pre- or post-processing.
+For this project all main functions related to the inferencing of the yolo4 model along with all the pre and post-processing of the input image. 
 
 ## Getting Started
 
@@ -12,14 +13,15 @@ The core library may contain python code that is core to a specific project whic
 Run the following commands:
 ```
 sudo apt-get install libyaml-dev
-cd <install-directory>/example-template-core
+cd <install-directory>/image-detection-core
 poetry update
+poetry install
 poetry build
 ```
 
-Alternatively, install the module from nexus:
+Alternatively, install the module from pip:
 ```
-pip install example-template-core
+pip install image-detection-core
 ```
 
 ### Build
@@ -56,7 +58,7 @@ MIT.
 
 ### Release Notes 
 * `0.1.0`
-    * First Version of the example templete core
+    * First Version of the image detection core
 
     
 
