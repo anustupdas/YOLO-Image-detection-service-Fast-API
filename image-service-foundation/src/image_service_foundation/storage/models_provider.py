@@ -61,5 +61,5 @@ class ModelsProvider:
                 else:
                     self.storage_client.download(file_destination)
             if not os.path.isdir(self.save_path):
-                self.models_converter.save_tf()
+                self.model_converter.save_tf()
 
