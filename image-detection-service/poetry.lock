@@ -302,7 +302,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "image-detection-core"
-version = "0.4.0"
+version = "0.5.0"
 description = ""
 category = "main"
 optional = false
@@ -311,7 +311,7 @@ python-versions = ">=3.7,<4.0"
 [package.dependencies]
 absl-py = "1.3.0"
 easydict = "1.10"
-image-service-foundation = "0.2.0"
+image-service-foundation = "0.3.0"
 opencv-python = ">=4.4.0,<5.0.0"
 pillow = "9.2.0"
 protobuf = ">=3.20.0,<3.21.0"
@@ -320,7 +320,7 @@ tensorflow = "2.3.0"
 
 [[package]]
 name = "image-service-foundation"
-version = "0.2.0"
+version = "0.3.0"
 description = ""
 category = "main"
 optional = false
@@ -883,7 +883,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "ecce5c0895cda559ef2e9b2d4ccb4667b63d24327de2a5e02d82b9df01e42ef0"
+content-hash = "6e74cf22d86bfb0cc1507ac57adaee3abee328dd4abb5ed36d7fd498493cb7e8"
 
 [metadata.files]
 absl-py = []
