@@ -3,17 +3,18 @@ import logging
 from image_service_foundation.config.configuration_manager import ConfigurationManager
 from image_service_foundation.storage.google_cloud import GoogleStorage
 from image_service_foundation.storage.dropbox_cloud import DropBoxStorage
-from image_detection_core.save_model import Model_Converter
 from google.cloud import storage
 
 logger = logging.getLogger(__name__)
 
 class ModelsProvider:
-    def __init__(self, config: ConfigurationManager):
+    def __init__(self, config: ConfigurationManager,models_converter):
         self.config = config
         self.storage_client_name = self.config.get('storage.client', 'dropbox')
         self._init_client(self.storage_client_name)
         self.enabled_models = self.config.get('models.enabledTypes')
+        self.save_path = self.config.get('yolo.finalweights')
+        self.model_converter = models_converter
 
         if not self.enabled_models:
             raise ValueError("No models enabled in configuration. Specify a list of enabled model types with key `models.enabledTypes`.")
@@ -40,7 +41,7 @@ class ModelsProvider:
         return destination_path
 
     def download_models(self):
-        models_converter = Model_Converter(self.config)
+
         for model_type in self.enabled_models:
             logger.info(f"Attempting download of {model_type}")
             try:
@@ -59,5 +60,6 @@ class ModelsProvider:
                     blob.download_to_filename(file_destination)
                 else:
                     self.storage_client.download(file_destination)
-                models_converter.save_tf()
+            if not os.path.isdir(self.save_path):
+                self.models_converter.save_tf()
 

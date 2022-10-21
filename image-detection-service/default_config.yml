@@ -28,4 +28,5 @@ storage.bucket: md-data-bingemarkers
 
 #If you are hosting your models in DropBox then make sure to use your own access token that you can set up from DROPBOX.
 #This one most probably won't work. [If you Don't have a dropbox you can contact me and I can generate a new token for you to run the service.]
-dropbox.accesstoken: 'sl.BRgJg3RbjAvrUh4nwdVJLLlfmiX07oec6OcDZ0EApm2LDu55lp-CtDdkrrjdswV3lD0LKiS3oMF4BBK3R3EXBNnwvji6mLbt2TPK93-BHmd0F6_bZSDnRtTGmWZTglZsJfDqpg9577kd'
+dropbox.accesstoken: 'sl.BRgbNg8DSLorFWLbRMB_g9uInOq8FwhFZnZiqc_vQ60yWAyhiNAK8oDyFB5XTL8Pnz5x4xOUZMQLBQ5eMBo9-kr-klgLOMoV60UMrJKCj-h0Dwx5RRcmSbuWEZLh6Q-3pZ7E2FJ4syp4'
+dropbox.dropbox_file_path: '/Apps/Yolo4_demo_test/yolov4.weights'

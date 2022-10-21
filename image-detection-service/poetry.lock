@@ -302,7 +302,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "image-detection-core"
-version = "0.3.0"
+version = "0.4.0"
 description = ""
 category = "main"
 optional = false
@@ -311,15 +311,16 @@ python-versions = ">=3.7,<4.0"
 [package.dependencies]
 absl-py = "1.3.0"
 easydict = "1.10"
-image-service-foundation = "0.1.0"
+image-service-foundation = "0.2.0"
 opencv-python = ">=4.4.0,<5.0.0"
 pillow = "9.2.0"
+protobuf = ">=3.20.0,<3.21.0"
 pytesseract = "0.3.10"
 tensorflow = "2.3.0"
 
 [[package]]
 name = "image-service-foundation"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 category = "main"
 optional = false
@@ -525,11 +526,11 @@ twisted = ["twisted"]
 
 [[package]]
 name = "protobuf"
-version = "3.19.6"
+version = "3.20.3"
 description = "Protocol Buffers"
 category = "main"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.7"
 
 [[package]]
 name = "py"
@@ -721,7 +722,7 @@ six = ">=1.12.0"
 
 [[package]]
 name = "tensorboard"
-version = "2.10.1"
+version = "2.9.0"
 description = "TensorBoard lets you watch Tensors Flow"
 category = "main"
 optional = false
@@ -734,7 +735,7 @@ google-auth-oauthlib = ">=0.4.1,<0.5"
 grpcio = ">=1.24.3"
 markdown = ">=2.6.8"
 numpy = ">=1.12.0"
-protobuf = ">=3.9.2,<3.20"
+protobuf = ">=3.9.2"
 requests = ">=2.21.0,<3"
 tensorboard-data-server = ">=0.6.0,<0.7.0"
 tensorboard-plugin-wit = ">=1.6.0"
@@ -882,7 +883,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "81bc01f94d2570a307b481427fd83e673ecf4725d423429e67aaa391240b4b7d"
+content-hash = "ecce5c0895cda559ef2e9b2d4ccb4667b63d24327de2a5e02d82b9df01e42ef0"
 
 [metadata.files]
 absl-py = []

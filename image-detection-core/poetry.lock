@@ -268,7 +268,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "image-service-foundation"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 category = "main"
 optional = false
@@ -467,8 +467,8 @@ python-versions = "*"
 
 [[package]]
 name = "protobuf"
-version = "4.21.8"
-description = ""
+version = "3.20.3"
+description = "Protocol Buffers"
 category = "main"
 optional = false
 python-versions = ">=3.7"
@@ -783,7 +783,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "d66a4274e2efd4c31a4f22996cabd5e7528dc793780385a8829762be6e696895"
+content-hash = "518dc51d1219c08523434555455d26b4e41bf2f0d813fb0bb0d9b041e0de2970"
 
 [metadata.files]
 absl-py = []

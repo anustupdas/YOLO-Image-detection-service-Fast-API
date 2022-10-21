@@ -51,7 +51,8 @@ async def version() -> dict:
 def run_app(port: int = None, log_level: str = None) -> None:
     config = initialize_configuration()
 
-    models_provider = ModelsProvider(config)
+    models_converter = Model_Converter(config)
+    models_provider = ModelsProvider(config,models_converter)
     models_provider.download_models()
 
     port = port or config.get('exampletemplateservice.port', DEFAULT_SERVICE_PORT)
