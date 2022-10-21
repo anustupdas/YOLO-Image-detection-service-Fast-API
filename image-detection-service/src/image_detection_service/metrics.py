@@ -6,11 +6,11 @@ __all__ = ('metrics',)
 class ServiceMetrics:
     def __init__(self) -> None:
         self.calls_counter = pc.Counter(
-            'example_template_service_calls', 'Amount of times the endpoint is called', labelnames=['endpoint']
+            'image_detection_service_calls', 'Amount of times the endpoint is called', labelnames=['endpoint']
         )
 
         self.failed_calls_counter = pc.Counter(
-            'example_template_service_failed_calls',
+            'image_detection_service_failed_calls',
             'Amount of times the endpoint is called & failed',
             labelnames=['endpoint'],
         )

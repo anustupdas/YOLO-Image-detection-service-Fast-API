@@ -4,7 +4,6 @@ import logging
 
 import image_detection_service as service
 
-
 logger = logging.getLogger(__name__)
 
 

@@ -1,9 +1,8 @@
 import logging
 import os
+
 import prometheus_client as prometheus
-from image_service_foundation.config.configuration_manager import (
-    ConfigurationManager,
-)
+from image_service_foundation.config.configuration_manager import ConfigurationManager
 
 from image_detection_service.constants import (
     DEFAULT_CONFIG_PATH,
@@ -22,6 +21,7 @@ __all__ = (
 def initialize_configuration() -> ConfigurationManager:
     config_path = os.getenv('REMOTE_CONFIG_URL', DEFAULT_CONFIG_PATH)
     return ConfigurationManager.from_path(config_path)
+
 
 def initialize_prometheus(config: ConfigurationManager) -> None:
     if config.get('prometheus.enabled', DEFAULT_PROMETHEUS_ENABLED):

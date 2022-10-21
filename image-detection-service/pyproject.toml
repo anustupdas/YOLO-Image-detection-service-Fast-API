@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "image-detection-service"
-version = "0.2.0"
+version = "0.5.0"
 description = ""
 authors = ["Anustup Das <anustup@mediadistillery.com>"]
 license = "MIT"
@@ -13,8 +13,8 @@ uvicorn="~0.13.3"
 numpy = ">=1.16.0,<1.19.0"
 prometheus-client = ">=0.6.0"
 python-multipart = "^0.0.5"
-image-service-foundation = "0.1.0"
-image-detection-core = "0.3.0"
+image-service-foundation = "0.4.0"
+image-detection-core = "0.6.0"
 
 [tool.poetry.dev-dependencies]
 pytest = ">=6.2.1"

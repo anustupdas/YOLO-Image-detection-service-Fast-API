@@ -1,5 +1,6 @@
 import logging
 import os
+import pathlib
 
 from image_service_foundation.config.configuration_manager import ConfigurationManager
 from image_service_foundation.storage.dropbox_cloud import DropBoxStorage
@@ -9,11 +10,14 @@ logger = logging.getLogger(__name__)
 
 
 class ModelsProvider:
-    def __init__(self, config: ConfigurationManager):
+    def __init__(self, config: ConfigurationManager, models_converter):
         self.config = config
         self.storage_client_name = self.config.get('storage.client', 'dropbox')
         self._init_client(self.storage_client_name)
-        self.enabled_models = self.config.get('models.enabledTypes')
+        self.enabled_models = self.config.get(
+            'models.enabledTypes'
+        )  # TODO: move if not os.path.isdir(self.save_path): to model_converter.save_tf()
+        self.model_converter = models_converter
 
         if not self.enabled_models:
             raise ValueError(
@@ -39,7 +43,7 @@ class ModelsProvider:
 
     def _get_file_destination(self, model_type, filename):
         destination_folder = os.path.join(self.destination_folder, model_type)
-        destination_path = os.path.join(destination_folder, filename)
+        destination_path = os.path.join(destination_folder, os.path.basename(filename))
         return destination_path
 
     def download_models(self):
@@ -54,6 +58,9 @@ class ModelsProvider:
             folder_destination = os.path.dirname(os.path.abspath(file_destination))
             os.makedirs(folder_destination, exist_ok=True)
 
-            if not os.path.isfile(file_destination):
+            file_destination = pathlib.Path(file_destination)
+            if not file_destination.exists() or file_destination.stat().st_size == 0:
                 bucket_name = self.config.get('storage.bucket', 'md-data-bingemarkers')
                 self.storage_client.download(bucket_name, blob_name, file_destination)
+
+            self.model_converter.save_tf()

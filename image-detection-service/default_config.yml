@@ -12,7 +12,12 @@ storage.serviceName: image_detection_service   #<your-service-name>
 models.enabledTypes:
         - yolo
 
-yolo.modelName: yolov4.weights
+# dropbox
+yolo.modelName: /Apps/Yolo4_demo_test/yolov4.weights
+# storage.client: 'dropbox'
+# gcloud
+# yolo.modelName: yolov4.weights
+# storage.client: 'gcloud'
 
 yolo.weightPath: '/etc/image_detection_service/models/yolo/yolov4.weights' #/etc/<your-service-name/models/yolo/yolov4.weights
 yolo.finalweights: '/etc/image_detection_service/models/yolo_checkpoint'   #/etc/<your-service-name/models/yolo_checkpoint
@@ -28,4 +33,5 @@ storage.bucket: md-data-bingemarkers
 
 #If you are hosting your models in DropBox then make sure to use your own access token that you can set up from DROPBOX.
 #This one most probably won't work. [If you Don't have a dropbox you can contact me and I can generate a new token for you to run the service.]
-dropbox.accesstoken: 'sl.BRgJg3RbjAvrUh4nwdVJLLlfmiX07oec6OcDZ0EApm2LDu55lp-CtDdkrrjdswV3lD0LKiS3oMF4BBK3R3EXBNnwvji6mLbt2TPK93-BHmd0F6_bZSDnRtTGmWZTglZsJfDqpg9577kd'
+dropbox.accesstoken: 'sl.BRnhOoqr_xOTPT-p4E-rWUFL9c7sahGSfT0f6EDZ4TKIuL2ajT_cW84hbAAXoQJw_hz9_6XoHVKi6AHgkWT7hRGbdA01G1LxPZrCivtd9Dj-FalVLSpyg4aA8yXUPghnc8yv50yAUplQ'
+dropbox.dropbox_file_path: '/Apps/Yolo4_demo_test/yolov4.weights'

@@ -50,7 +50,7 @@ poetry publish
 
 ## Authors
 
-* **Your_Name** your_mail@address.com
+* **Anustup Das** anustup@mediadistillery.com
 
 ## License
 
@@ -59,9 +59,3 @@ MIT.
 ### Release Notes 
 * `0.1.0`
     * First Version of the image detection core
-
-    
-
-
-
-

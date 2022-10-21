@@ -1,1 +1,2 @@
-__version__ = '1.0.0'
+# This file was generated using a custom poetry plugin. Please do not edit manually.
+__version__ = '0.5.0'

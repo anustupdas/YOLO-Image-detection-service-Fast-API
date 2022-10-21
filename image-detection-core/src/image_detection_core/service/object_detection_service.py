@@ -1,16 +1,20 @@
 import os
+
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
+
 physical_devices = tf.config.experimental.list_physical_devices('GPU')
 if len(physical_devices) > 0:
     tf.config.experimental.set_memory_growth(physical_devices[0], True)
 
-import image_detection_core.yolo.utils as utils
-from image_detection_core.yolo.yolov4 import filter_boxes
-from image_detection_core.yolo.functions import *
-from image_detection_core.constants import *
+import cv2
+import numpy as np
 from tensorflow.python.saved_model import tag_constants
 
+import image_detection_core.yolo.utils as utils
+from image_detection_core.constants import *
+from image_detection_core.yolo.functions import cfg, get_objects
+from image_detection_core.yolo.yolov4 import filter_boxes
 
 
 class ObjectDetectionService:
@@ -32,7 +36,7 @@ class ObjectDetectionService:
         else:
             return tf.saved_model.load(self.final_weight_path, tags=[tag_constants.SERVING])
 
-    def _format_detctions(self, detections, original_image,allowed_classes):
+    def _format_detections(self, detections, original_image, allowed_classes):
 
         boxes = detections[0]
         scores = detections[1]
@@ -57,7 +61,15 @@ class ObjectDetectionService:
 
         return crops
 
-    def detect(self, images_data, original_image,allowed_classes = 'all'):
+    def detect(self, image: np.ndarray, allowed_classes='all'):
+
+        img_np = cv2.imdecode(image, cv2.IMREAD_COLOR)  # cv2.IMREAD_COLOR in OpenCV 3.1
+        original_image = cv2.cvtColor(img_np, cv2.COLOR_BGR2RGB)
+
+        image_data = cv2.resize(original_image, (self.input_size, self.input_size))
+        image_data = image_data / 255.0
+        images_data = [image_data]
+        images_data = np.asarray(images_data).astype(np.float32)
 
         if self.framework == 'tflite':
             interpreter = self.model
@@ -68,9 +80,13 @@ class ObjectDetectionService:
             interpreter.invoke()
             pred = [interpreter.get_tensor(output_details[i]['index']) for i in range(len(output_details))]
             if self.model_name == 'yolov3' and self.tiny == True:
-                boxes, pred_conf = filter_boxes(pred[1], pred[0], score_threshold=0.25, input_shape=tf.constant([self.input_size, self.input_size]))
+                boxes, pred_conf = filter_boxes(
+                    pred[1], pred[0], score_threshold=0.25, input_shape=tf.constant([self.input_size, self.input_size])
+                )
             else:
-                boxes, pred_conf = filter_boxes(pred[0], pred[1], score_threshold=0.25, input_shape=tf.constant([self.input_size, self.input_size]))
+                boxes, pred_conf = filter_boxes(
+                    pred[0], pred[1], score_threshold=0.25, input_shape=tf.constant([self.input_size, self.input_size])
+                )
         else:
             saved_model_loaded = self.model
             infer = saved_model_loaded.signatures['serving_default']
@@ -82,16 +98,16 @@ class ObjectDetectionService:
 
         # run non max suppression on detections
         boxes, scores, classes, valid_detections = tf.image.combined_non_max_suppression(
-                        boxes=tf.reshape(boxes, (tf.shape(boxes)[0], -1, 1, 4)),
-                        scores=tf.reshape(pred_conf, (tf.shape(pred_conf)[0], -1, tf.shape(pred_conf)[-1])),
-                        max_output_size_per_class=50,
-                        max_total_size=50,
-                        iou_threshold=self.iou,
-                        score_threshold=self.score_threshold)
+            boxes=tf.reshape(boxes, (tf.shape(boxes)[0], -1, 1, 4)),
+            scores=tf.reshape(pred_conf, (tf.shape(pred_conf)[0], -1, tf.shape(pred_conf)[-1])),
+            max_output_size_per_class=50,
+            max_total_size=50,
+            iou_threshold=self.iou,
+            score_threshold=self.score_threshold,
+        )
 
         raw_detections = [boxes, scores, classes, valid_detections]
 
-        final_detections = self._format_detctions(raw_detections, original_image,allowed_classes)
+        final_detections = self._format_detections(raw_detections, original_image, allowed_classes)
 
         return final_detections
-
