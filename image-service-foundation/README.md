@@ -36,7 +36,7 @@ poetry build
 and published to PYPI using
 ```bash
 
- twine upload -r packahe_name dist/*
+ twine upload -r package_name dist/*
 
 ```
 
