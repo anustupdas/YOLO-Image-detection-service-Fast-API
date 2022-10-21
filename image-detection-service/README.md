@@ -31,6 +31,22 @@ This is for development purpose. You need to build and upload a new version of t
 
 Update any configuration as necessary. The template contains defaults for all variables.
 
+#### About Model hosting
+You can either keep your model in some public google bucket and access it with that or keep the model
+in drop box as well.
+If you are hosting your models in **GoogleStorage** Make sure to make the bucket public where you host your model
+If you are hosting your models in **DropBox** then make sure to use your own access token that you can set up from DROPBOX.
+
+If you really do not have any of the above place where you can store and access the model from you can just access the model from (This [Dropbox_link](https://www.dropbox.com/s/ga85crbwcnmjftd/yolov4.weights?dl=0))
+```shell
+
+mkdir -p /etc/<your-service-name eg. image-detection-service>/
+mkdir -p /etc/<your-service-name eg. image-detection-service>/models/
+mkdir -p /etc/<your-service-name eg. image-detection-service>/models/yolo
+ 
+```
+
+Put the downloaded model in the above created directory
 ### Installing
 
 The actual service can be installed from PyPI (see [PyPI](https://pypi.org/)).
