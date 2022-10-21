@@ -8,14 +8,14 @@ exampletemplateservice.logLevel: info
 fastapi.logLevel: warning
 
 
-storage.serviceName: image_detection_service
+storage.serviceName: image_detection_service   #<your-service-name>
 models.enabledTypes:
         - yolo
 
 yolo.modelName: yolov4.weights
 
-yolo.weightPath: '/etc/image_detection_service/models/yolo/yolov4.weights'
-yolo.finalweights: '/etc/image_detection_service/models/yolo_checkpoint'
+yolo.weightPath: '/etc/image_detection_service/models/yolo/yolov4.weights' #/etc/<your-service-name/models/yolo/yolov4.weights
+yolo.finalweights: '/etc/image_detection_service/models/yolo_checkpoint'   #/etc/<your-service-name/models/yolo_checkpoint
 yolo.tiny: False
 yolo.input_size: 416
 yolo.framework: tf
@@ -23,9 +23,9 @@ yolo.model: yolov4
 yolo.iou: 0.45
 yolo.score_threshold: 0.50
 
-
+#Bucket name in your google strogae [#If you are hosting your models in GoogleStorage Make sure to make the bucket public where you host your model]
 storage.bucket: md-data-bingemarkers
-storage.key: /etc/gcloud/key.json
 
-
-dropbox.accesstoken: 'sl.BReWCoENuUEgfI53sZM1PZZqbKFJynCxxvNx-WKagtX-0LyHpxzEb89fFZcsvADM_mL3h44uIepBc6EjwzOavcGBQdp73o78eMirb9sMu-AzSt_wGsiED5VVCPVBwGGugKcJ6imNmzFz'
+#If you are hosting your models in DropBox then make sure to use your own access token that you can set up from DROPBOX.
+#This one most probably won't work. [If you Don't have a dropbox you can contact me and I can generate a new token for you to run the service.]
+dropbox.accesstoken: 'sl.BRgJg3RbjAvrUh4nwdVJLLlfmiX07oec6OcDZ0EApm2LDu55lp-CtDdkrrjdswV3lD0LKiS3oMF4BBK3R3EXBNnwvji6mLbt2TPK93-BHmd0F6_bZSDnRtTGmWZTglZsJfDqpg9577kd'

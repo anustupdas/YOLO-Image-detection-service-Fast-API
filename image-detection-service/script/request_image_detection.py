@@ -3,9 +3,10 @@ import uuid
 import os
 import cv2
 
-
+#Input Path of your Image Directory
+#please make a folder named result under the input path.
 path = "/home/anustup/Pictures/cluster_test/c"
-
+result_path = os.path.join(path, "result")
 classes = 'dog,hot dog'
 veichels = 'bicycle,car,motorbike,aeroplane,bus,train,truck,boat'
 animals = 'bird,cat,dog,horse,sheep,cow,elephant,bear,zebra,giraffe'
@@ -34,7 +35,7 @@ for pic in os.listdir(path):
             c1, c2 = (coor[0], coor[1]), (coor[2], coor[3])
             cv2.rectangle(img, c1, c2, (255,255,0), 2)
 
-        cv2.imwrite(f"/home/anustup/Pictures/cluster_test/c/result/{pic}", img)
+        cv2.imwrite(os.path.join(result_path, pic), img)
 
 
 

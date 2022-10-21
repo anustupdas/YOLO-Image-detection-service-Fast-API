@@ -24,15 +24,16 @@
 
 Do you have an amazing Machine Learning Solution but you are thinking you do not know how to create a webservice out of it? Well, this project exactly solves your problem. This repo can be used as a kickstarter to convert your local ML application into a running webservice that can be deployed to the server/local.
 
-This is an example project that can help you understand the framework and design of FastAPI that is generally used at Media Distillery.
+This is an example project that can help you understand how you can use the framework to design a FastAPI webservice that actually detects objects in an image with the help of **YOLOv4** model that is generally used at Media Distillery.
 
 <h3>In addition, you can also learn about other activities needed to deploy a solution to servers [Production], including:</h3>
 
 - Dependency management and packaging in Python using Poetry.
   * How a simple <b><i> pyproject.toml</b></i> looks like for poetry, can be found under each package. 
+  * How you can custom that <b><i> pyproject.toml</b></i> for your project specific needs. 
 - Creating the deployable containers of the ML services using Docker.
   * Example <b><i> Dockerfile</b></i> can be found at:
-    > example-template-service/docker/Dockerfile
+    > image-detection-service/docker/Dockerfile
 
 ---
 
@@ -42,14 +43,19 @@ This is an example project that can help you understand the framework and design
 
 ## Project Structure
 
-### example-template-foundation:
+### image-service-foundation:
 The foundation library may contain shared python code and functions that can be reused in several Python projects or services.
+For this project it mainly handels the functions that we frequently use to read configuration files and also functions that are needed to access ML models that are hosted in cloud [Google/ Dropbox]  
 
-### example-template-core:
+#### Note
+The name of the **foundation** package is a bit different from the other package as the **foundation** package is intended to be used by a wide variety or umbrella of projects and services of which **image-detection-service** is one, that can commonly use the functionalities of this package
+### image-detection-core:
 The core library may contain python code that is core to a specific project which mainly deals with the business logic, such as model initialization, inference and data pre- or post-processing.
+For this project all main functions related to the inferencing of the yolo4 model along with all the pre and post-processing of the input image. 
 
-### example-template-service:
+### image-detection-service:
 The purpose of the service package is to make the functionalities of the core accessible through a REST API.
+This Becomes the main entry point of the webservice which is used to detec objects in an Image.
 
 ### Please read the README for each individual package.
 
