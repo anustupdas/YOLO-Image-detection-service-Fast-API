@@ -11,7 +11,7 @@ from image_detection_service.utils import initialize_configuration
 logger = logging.getLogger(__name__)
 
 
-__all__ = ('example_service_router',)
+__all__ = ('image_detection_service_router',)
 
 service: DlImageAnalysisService
 
@@ -23,11 +23,11 @@ def on_startup() -> None:
     service = DlImageAnalysisService(config=config)
 
 
-example_service_router = APIRouter()
-example_service_router.add_event_handler('startup', on_startup)
+image_detection_service_router = APIRouter()
+image_detection_service_router.add_event_handler('startup', on_startup)
 
 
-@example_service_router.post('/example/sum', tags=['sum'])
+@image_detection_service_router.post('/example/sum', tags=['sum'])
 async def addition(inputs: List[float]):
 
     logger.info(f'Received addition request (service)')
@@ -43,7 +43,7 @@ async def addition(inputs: List[float]):
     return response
 
 
-@example_service_router.post('/example/detect', tags=['detect'])
+@image_detection_service_router.post('/example/detect', tags=['detect'])
 def detect(
     request: Request, classes_to_detect: str = None, frame: bytes = File(..., description='An arbitrary image.')
 ) -> dict:
@@ -64,7 +64,7 @@ def detect(
     return response
 
 
-@example_service_router.get('/example/version', tags=['version'])
+@image_detection_service_router.get('/example/version', tags=['version'])
 async def version():
 
     logger.info(f'Received addition request (service)')

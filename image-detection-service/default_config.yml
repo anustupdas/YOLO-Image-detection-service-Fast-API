@@ -1,10 +1,10 @@
 ---
 prometheus.enabled: true
 prometheus.port: 8080
-exampletemplateservice.port: 5000
-exampletemplateservice.hostName: 0.0.0.0
-exampletemplateservice.logFile: null
-exampletemplateservice.logLevel: info
+imagedetectionservice.port: 5000
+imagedetectionservice.hostName: 0.0.0.0
+imagedetectionservice.logFile: null
+imagedetectionservice.logLevel: info
 fastapi.logLevel: warning
 
 

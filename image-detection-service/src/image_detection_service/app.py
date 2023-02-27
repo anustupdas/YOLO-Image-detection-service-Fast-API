@@ -7,7 +7,7 @@ from image_service_foundation.logger import set_logging
 from image_service_foundation.storage.models_provider import ModelsProvider
 
 from image_detection_service.api_v1.image_detection_service import (
-    example_service_router as router_v1,
+    image_detection_service_router as router_v1,
 )
 from image_detection_service.constants import (
     API_VERSION_PREFIX,
